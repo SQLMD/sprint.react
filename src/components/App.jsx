@@ -35,16 +35,6 @@ export default class App extends Component {
     this.loadPhotos();
   }
 
-  // listObjects().then((photos) => {
-  //   const photo64 = [];
-  //   for (let photo of photos) {
-  //     photo64.push(getSingleObject(photo["Key"]));
-  //   }
-  //   Promise.all(photo64).then((photos) => {
-  //     this.setState({ photos });
-  //   });
-  // });
-
   loadPhotos() {
     listObjects().then((photos) => {
       return Promise.all(
@@ -57,7 +47,7 @@ export default class App extends Component {
 
   get currentView() {
     if ((this.state.currentView = "AllPhotos")) {
-      return <AllPhotos />;
+      return <AllPhotos photos={this.state.photos} />;
     }
     if ((this.state.currentView = "SinglePhoto")) {
       return <SinglePhotos />;

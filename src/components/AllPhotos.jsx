@@ -9,6 +9,18 @@ export default class AllPhoto extends Component {
   }
 
   render() {
-    return <div className="image image-cell" />;
+    return (
+      <div>
+        {this.props.photos.map((photo, index) => {
+          return (
+            <img
+              key={index}
+              className="image imageCell"
+              src={`data:image/jpeg;base64, ${photo}`}
+            />
+          );
+        })}
+      </div>
+    );
   }
 }
