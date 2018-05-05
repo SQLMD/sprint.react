@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import _ from "lodash";
+const _ = require("lodash");
 
-export default class AllPhotos extends Component {
+import "../styles/styles.css";
+
+export default class AllPhoto extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    return <div />;
+    return <div className="image image-cell" />;
   }
 }
