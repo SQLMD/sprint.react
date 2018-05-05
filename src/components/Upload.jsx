@@ -9,6 +9,10 @@ export default class Upload extends Component {
   }
 
   render() {
-    return <div className="file-upload" />;
+    return (
+      <div className="file-upload">
+        <button className="button">Upload a Picture</button>
+      </div>
+    );
   }
 }
