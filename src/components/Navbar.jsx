@@ -12,7 +12,14 @@ export default class Navbar extends Component {
   render() {
     return (
       <div className="navbar">
-        <h4 className="navbar-header">CC Photos</h4>
+        <h4
+          className="navbar-header"
+          onClick={() => {
+            this.props.onTitleClick();
+          }}
+        >
+          CC Photos
+        </h4>
         <Upload />
       </div>
     );

@@ -16,6 +16,7 @@ export default class App extends Component {
       selectedPhoto: "ccc",
     };
     this.onPhotoClick = this.onPhotoClick.bind(this);
+    this.onTitleClick = this.onTitleClick.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +40,12 @@ export default class App extends Component {
     });
   }
 
+  onTitleClick() {
+    this.setState({
+      currentView: "AllPhotos",
+    });
+  }
+
   get currentView() {
     if (this.state.currentView === "AllPhotos") {
       return (
@@ -56,7 +63,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <Navbar />
+        <Navbar onTitleClick={this.onTitleClick} />
         {this.currentView}
       </div>
     );
