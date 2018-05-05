@@ -12,6 +12,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <div className="navbar">
+        <h4 className="navbar-header">CC Photos</h4>
         <Upload />
       </div>
     );
