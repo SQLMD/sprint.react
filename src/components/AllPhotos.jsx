@@ -17,6 +17,9 @@ export default class AllPhoto extends Component {
               key={index}
               className="image imageCell"
               src={`data:image/jpeg;base64, ${photo}`}
+              onClick={() => {
+                this.props.onPhotoClick(photo);
+              }}
             />
           );
         })}

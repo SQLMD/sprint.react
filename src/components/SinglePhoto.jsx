@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-const _ = require("lodash");
-
+import React from "react";
 import "../styles/styles.css";
 
-export default class SinglePhoto extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return <div className="single-photo" />;
-  }
+function SinglePhoto(props) {
+  return (
+    <div>
+      <img
+        className="single-photo"
+        src={`data:image/jpeg;base64, ${props.selectedPhoto}`}
+      />
+    </div>
+  );
 }
+
+export default SinglePhoto;
