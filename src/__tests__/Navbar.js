@@ -1,7 +1,9 @@
 jest.mock("../utils/");
 
 import React from "react";
-import { mount } from "enzyme";
+import { mount, configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+configure({ adapter: new Adapter() });
 import sinon from "sinon";
 
 import { saveObject } from "../utils/";
