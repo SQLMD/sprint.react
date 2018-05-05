@@ -17,6 +17,7 @@ import ReactDOM from "react-dom";
 import Navbar from "./Navbar";
 import AllPhotos from "./AllPhotos";
 import SinglePhoto from "./SinglePhoto";
+import { listObjects, getSingleObject, saveObject } from "../utils/index";
 
 import "../styles/styles.css";
 
@@ -30,13 +31,44 @@ export default class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.loadPhotos();
+  }
+
+  // listObjects().then((photos) => {
+  //   const photo64 = [];
+  //   for (let photo of photos) {
+  //     photo64.push(getSingleObject(photo["Key"]));
+  //   }
+  //   Promise.all(photo64).then((photos) => {
+  //     this.setState({ photos });
+  //   });
+  // });
+
+  loadPhotos() {
+    listObjects().then((photos) => {
+      return Promise.all(
+        photos.map((photo) => getSingleObject(photo["Key"]))
+      ).then((photoStrings) => {
+        this.setState({ photos: photoStrings });
+      });
+    });
+  }
+
+  get currentView() {
+    if ((this.state.currentView = "AllPhotos")) {
+      return <AllPhotos />;
+    }
+    if ((this.state.currentView = "SinglePhoto")) {
+      return <SinglePhotos />;
+    }
+  }
+
   render() {
     return (
       <div className="app">
-        Test
         <Navbar />
-        <AllPhotos />
-        <SinglePhoto />
+        {this.currentView}
       </div>
     );
   }
