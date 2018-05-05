@@ -44,6 +44,7 @@ export default class App extends Component {
     this.setState({
       currentView: "AllPhotos",
     });
+    this.loadPhotos();
   }
 
   get currentView() {
