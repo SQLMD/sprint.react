@@ -1,14 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 const _ = require("lodash");
 import Upload from "./Upload";
 
 import "../styles/navbar.css";
 
-export default class Navbar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class Navbar extends Component {
   render() {
     return (
       <div className="navbar">
@@ -25,3 +22,11 @@ export default class Navbar extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTitleClick: () => dispatch({ type: "GO_HOME" }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Navbar);

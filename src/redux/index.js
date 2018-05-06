@@ -8,6 +8,10 @@ const initialState = {
 
 const reducer = (previousState = initialState, action) => {
   switch (action.type) {
+    case "GO_HOME": {
+      const newState = { currentView: "AllPhotos" };
+      return newState;
+    }
     default:
       return {};
   }
