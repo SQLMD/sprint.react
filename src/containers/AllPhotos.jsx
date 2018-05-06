@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 const { connect } = require("react-redux");
-const _ = require("lodash");
 
 import "../styles/styles.css";
 class AllPhotos extends Component {

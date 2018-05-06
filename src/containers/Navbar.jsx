@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-const _ = require("lodash");
+
 import Upload from "./Upload";
 import { listObjects, getSingleObject } from "../utils/index";
 

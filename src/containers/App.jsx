@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import Navbar from "./Navbar";
 import AllPhotos from "./AllPhotos";
 import SinglePhoto from "./SinglePhoto";
-import { listObjects, getSingleObject, saveObject } from "../utils/index";
 
 import "../styles/styles.css";
 
