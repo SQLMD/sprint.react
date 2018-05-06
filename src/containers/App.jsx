@@ -9,18 +9,6 @@ import { listObjects, getSingleObject, saveObject } from "../utils/index";
 import "../styles/styles.css";
 
 class App extends Component {
-  componentDidMount() {
-    listObjects()
-      .then((photos) => {
-        return Promise.all(
-          photos.map((photo) => getSingleObject(photo["Key"]))
-        );
-      })
-      .then((photos) => {
-        this.props.loadPhotos(photos);
-      });
-  }
-
   get currentView() {
     if (this.props.currentView === "AllPhotos") {
       return <AllPhotos />;
@@ -44,10 +32,4 @@ const mapStateToProps = (state) => ({
   currentView: state.currentView,
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadPhotos: (photos) => dispatch({ type: "LOAD_PHOTOS", photos }),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

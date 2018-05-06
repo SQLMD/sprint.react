@@ -9,18 +9,10 @@ const initialState = {
 
 const reducer = (previousState = initialState, action) => {
   switch (action.type) {
-    case "LOAD_PHOTOS": {
-      const newState = {
-        currentView: "AllPhotos",
-        photos: action.photos,
-        selectedPhoto: previousState.selectedPhoto,
-      };
-      return newState;
-    }
     case "GO_HOME": {
       const newState = {
         currentView: "AllPhotos",
-        photos: previousState.photos,
+        photos: action.photos,
         selectedPhoto: previousState.selectedPhoto,
       };
       return newState;
