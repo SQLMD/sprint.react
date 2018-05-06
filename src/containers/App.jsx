@@ -13,7 +13,7 @@ export default class App extends Component {
     this.state = {
       currentView: "AllPhotos",
       photos: [],
-      selectedPhoto: undefined,
+      selectedPhoto: "ccc",
     };
     this.onPhotoClick = this.onPhotoClick.bind(this);
     this.onTitleClick = this.onTitleClick.bind(this);
