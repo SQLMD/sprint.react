@@ -1,4 +1,6 @@
 import React from "react";
+const { connect } = require("react-redux");
+
 import "../styles/styles.css";
 
 function SinglePhoto(props) {
@@ -12,4 +14,8 @@ function SinglePhoto(props) {
   );
 }
 
-export default SinglePhoto;
+const mapStateToProps = (state) => ({
+  selectedPhoto: state.selectedPhoto,
+});
+
+export default connect(mapStateToProps)(SinglePhoto);

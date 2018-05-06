@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import Navbar from "./Navbar";
 import AllPhotos from "./AllPhotos";
-// import SinglePhoto from "./SinglePhoto";
+import SinglePhoto from "./SinglePhoto";
 import { listObjects, getSingleObject, saveObject } from "../utils/index";
 
 import "../styles/styles.css";
@@ -21,15 +21,28 @@ class App extends Component {
       });
   }
 
+  get currentView() {
+    if (this.props.currentView === "AllPhotos") {
+      return <AllPhotos />;
+    }
+    if (this.props.currentView === "SinglePhoto") {
+      return <SinglePhoto />;
+    }
+  }
+
   render() {
     return (
       <div className="app">
         <Navbar />
-        <AllPhotos />
+        {this.currentView}
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  currentView: state.currentView,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -37,4 +50,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
