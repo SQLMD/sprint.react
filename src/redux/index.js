@@ -16,14 +16,22 @@ const reducer = (previousState = initialState, action) => {
         photos: action.photos,
         selectedPhoto: previousState.selectedPhoto,
       };
-      console.log(newState);
       return newState;
     }
     case "GO_HOME": {
+      console.log(previousState);
       const newState = {
         currentView: "AllPhotos",
         photos: previousState.photos,
         selectedPhoto: previousState.selectedPhoto,
+      };
+      return newState;
+    }
+    case "PHOTO_CLICK": {
+      const newState = {
+        currentView: "SINGLE_PHOTO",
+        photos: previousState.photos,
+        selectedPhoto: action.photo,
       };
       return newState;
     }

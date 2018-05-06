@@ -7,7 +7,7 @@ class AllPhotos extends Component {
   render() {
     return (
       <div>
-        {/* {this.props.photos.map((photo, index) => {
+        {this.props.photos.map((photo, index) => {
           return (
             <img
               key={index}
@@ -18,11 +18,7 @@ class AllPhotos extends Component {
               }}
             />
           );
-        })} */}
-        <img
-          className="image imageCell"
-          src={`data:image/jpeg;base64, ${this.props.photos[0]}`}
-        />
+        })}
       </div>
     );
   }
@@ -32,4 +28,10 @@ const mapStateToProps = (state) => ({
   photos: state.photos,
 });
 
-export default connect(mapStateToProps)(AllPhotos);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onPhotoClick: (photo) => dispatch({ type: "PHOTO_CLICK", photo }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllPhotos);
